@@ -80,7 +80,17 @@ export const portfolio = {
     {
       id: 'nextbuy',
       name: 'NextBuy',
-      cover: { theme: 'matchup', value: '2 heroes', label: 'One item recommendation' },
+      cover: {
+        theme: 'matchup',
+        value: '2 heroes',
+        label: 'One item recommendation',
+        screenshot: {
+          src: '/projects/nextbuy-demo.png',
+          alt: 'NextBuy recommends Radiance for Spectre against Phantom Assassin and shows the ranked match sample.',
+          width: 1914,
+          height: 914,
+        },
+      },
       description: 'A Dota 2 item advisor that uses ranked matches to suggest what to buy next for a hero matchup.',
       contribution: 'I built the OpenDota match ingestion and the logic that recommends the next item for a pair of heroes.',
       outcome: 'Each recommendation shows how many match records support it.',
