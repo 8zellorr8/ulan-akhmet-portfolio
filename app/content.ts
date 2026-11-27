@@ -8,9 +8,10 @@ type ProjectSummary = {
 type Project = ProjectSummary & {
   localName?: { text: string; lang: string };
   context?: string;
+  cover?: { theme: 'coverage' | 'video' | 'matchup' | 'classroom'; value: string; label: string };
   contribution: string;
   contributionLabel?: 'Team approach';
-  outcome: string;
+  outcome?: string;
   repository?: string;
   inDevelopment?: boolean;
   accessRestricted?: boolean;
@@ -43,9 +44,10 @@ export const portfolio = {
       id: 'replimetr',
       name: 'Replimetr',
       context: 'Freedom Broker Data Challenge ’26',
+      cover: { theme: 'coverage', value: '91%', label: 'Backend line coverage' },
       description: 'A quality review tool that scores customer chats and call transcripts against a shared set of criteria.',
       contribution: 'I owned the backend, built the batch-processing API, and validated model responses against the source conversation on the server.',
-      outcome: 'The backend reached 91% line coverage with 431 pytest tests.',
+      outcome: 'The backend test suite includes 431 pytest tests.',
       stack: ['Python', 'FastAPI', 'Qwen3', 'Docker'],
       repository: 'https://github.com/8zellorr8/data_ch',
     },
@@ -53,15 +55,16 @@ export const portfolio = {
       id: 'fortelens',
       name: 'ForteLens',
       context: 'Datathon · Team project',
+      cover: { theme: 'video', value: '42', label: 'Hand-labeled videos used to evaluate the model' },
       description: 'A team prototype that flags moments for human review in videos of bank cash operations.',
       contribution: 'I built seven API routes and a background queue, then fixed failures on longer videos.',
-      outcome: 'Our team evaluated the model on 42 hand-labeled videos.',
       stack: ['Python', 'FastAPI', 'Qwen3-VL', 'FFmpeg'],
       repository: 'https://github.com/8zellorr8/datathon_ketnavr',
     },
     {
       id: 'nextbuy',
       name: 'NextBuy',
+      cover: { theme: 'matchup', value: '2 heroes', label: 'One item recommendation' },
       description: 'A Dota 2 item advisor that uses ranked matches to suggest what to buy next for a hero matchup.',
       contribution: 'I built the OpenDota match ingestion and the logic that recommends the next item for a pair of heroes.',
       outcome: 'Each recommendation shows how many match records support it.',
@@ -74,9 +77,9 @@ export const portfolio = {
       id: 'smartjoba',
       name: 'SmartJoba',
       localName: { text: 'Оқужол', lang: 'kk' },
+      cover: { theme: 'classroom', value: 'Grades & attendance', label: 'Student view' },
       description: 'A Kazakh-language learning platform for a college, with a digital gradebook, course materials, assignments, and scheduling.',
       contribution: 'I came up with the idea and developed the product concept.',
-      outcome: 'Students can see their grades and attendance in one place.',
       stack: ['React', 'TypeScript', 'FastAPI', 'PostgreSQL'],
       repository: 'https://github.com/8zellorr8/smart_joba',
       inDevelopment: true,

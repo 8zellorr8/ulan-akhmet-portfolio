@@ -9,7 +9,7 @@ function TechnologyList({ technologies }: { technologies: readonly string[] }) {
 }
 
 function ProjectCard({ project }: { project: Project }) {
-  const { localName } = project;
+  const { cover, localName } = project;
   const displayName = localName ? `${localName.text} (${project.name})` : project.name;
 
   return (
@@ -21,10 +21,16 @@ function ProjectCard({ project }: { project: Project }) {
         {project.inDevelopment && <span className="project-status">In development</span>}
       </div>
       {project.context && <p className="project-context">{project.context}</p>}
+      {cover && (
+        <div className="case-cover" data-theme={cover.theme}>
+          <p className="cover-value">{cover.value}</p>
+          <p className="cover-label">{cover.label}</p>
+        </div>
+      )}
       <p className="project-description">{project.description}</p>
       <div className="project-work">
         <p><strong>{project.contributionLabel ?? 'My contribution'}</strong>{project.contribution}</p>
-        <p className="project-outcome">{project.outcome}</p>
+        {project.outcome && <p className="project-outcome">{project.outcome}</p>}
       </div>
       <TechnologyList technologies={project.stack} />
       {project.repository && (
