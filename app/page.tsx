@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { portfolio, type Project } from './content';
 
 function TechnologyList({ technologies }: { technologies: readonly string[] }) {
@@ -22,7 +23,25 @@ function ProjectCard({ project }: { project: Project }) {
       </div>
       {project.context && <p className="project-context">{project.context}</p>}
       {cover && (
-        <div className="case-cover" data-theme={cover.theme} data-tone={cover.tone}>
+        <div className="case-cover" data-theme={cover.theme} data-tone={cover.tone} data-screenshot={cover.screenshot ? true : undefined}>
+          {cover.screenshot && (
+            <a
+              className="cover-screenshot"
+              href={cover.screenshot.src}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open demo screenshot in a new tab"
+            >
+              <Image
+                src={cover.screenshot.src}
+                alt={cover.screenshot.alt}
+                width={cover.screenshot.width}
+                height={cover.screenshot.height}
+                unoptimized
+              />
+              <span>Open demo screenshot</span>
+            </a>
+          )}
           <p className="cover-value">{cover.value}</p>
           <p className="cover-label">{cover.label}</p>
         </div>

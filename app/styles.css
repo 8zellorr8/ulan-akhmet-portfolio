@@ -332,6 +332,27 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 665; line-height: 1.12;
 .cover-label { max-width: 27ch; margin-block-start: 7px; color: var(--cover-caption); font-size: 0.875rem; line-height: 1.4; overflow-wrap: anywhere; }
 .case-cover[data-theme='classroom'] .cover-value { max-width: 12ch; font: 660 clamp(1.55rem, 3.6vw, 2.3rem)/0.98 var(--font-body); letter-spacing: -0.05em; }
 
+.case-cover[data-screenshot] { grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 10px 14px; }
+.case-cover[data-screenshot] .cover-value { font-size: clamp(1.6rem, 4vw, 2.15rem); }
+.case-cover[data-screenshot] .cover-label { margin-block-start: 0; }
+
+.cover-screenshot {
+  display: grid;
+  grid-column: 1 / -1;
+  min-width: 0;
+  gap: 6px;
+  padding-block-end: 4px;
+  border-radius: 7px;
+  color: var(--cover-ink);
+  font-size: 0.875rem;
+  font-weight: 620;
+  text-underline-offset: 0.24em;
+  overflow-wrap: anywhere;
+}
+
+.cover-screenshot img { display: block; width: 100%; height: auto; border-radius: 7px; background: #f6f7f5; }
+.cover-screenshot:focus-visible { outline-color: #f1e2ff; }
+
 .project-work { flex: 1; }
 .project-work strong { display: block; margin-block-end: 3px; font-size: 0.875rem; font-weight: 670; }
 .project-outcome { margin-block-start: 13px; color: var(--accent-hover); font-weight: 590; }

@@ -13,6 +13,7 @@ type Project = ProjectSummary & {
     tone?: 'light';
     value: string;
     label: string;
+    screenshot?: { src: string; alt: string; width: number; height: number };
   };
   contribution: string;
   contributionLabel?: 'Team approach';
@@ -49,7 +50,17 @@ export const portfolio = {
       id: 'replimetr',
       name: 'Replimetr',
       context: 'Freedom Broker Data Challenge ’26',
-      cover: { theme: 'coverage', value: '91%', label: 'Backend line coverage' },
+      cover: {
+        theme: 'coverage',
+        value: '91%',
+        label: 'Backend line coverage',
+        screenshot: {
+          src: '/projects/replimetr-demo.png',
+          alt: 'Replimetr demo with a scoring checklist, customer chat, and the AI assessment result.',
+          width: 1898,
+          height: 917,
+        },
+      },
       description: 'A quality review tool that scores customer chats and call transcripts against a shared set of criteria.',
       contribution: 'I owned the backend, built the batch-processing API, and validated model responses against the source conversation on the server.',
       outcome: 'The backend test suite includes 431 pytest tests.',
