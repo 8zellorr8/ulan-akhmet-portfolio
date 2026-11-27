@@ -30,6 +30,13 @@ export const portfolio = {
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/ulan-akhmet-ab60a5395' },
     { label: 'Email', href: 'mailto:ulanahmet5@gmail.com' },
   ],
+  build: {
+    description: 'Built with Codex · Deployed on Vercel',
+    links: [
+      { label: 'Site source', href: 'https://github.com/8zellorr8/ulan-akhmet-portfolio' },
+      { label: 'Example pull request', href: 'https://github.com/8zellorr8/ulan-akhmet-portfolio/pull/2' },
+    ],
+  },
   highlight: { project: 'Replimetr', scored: 65, total: 65, label: 'Customer conversations scored using a local LLM' },
   projects: [
     {

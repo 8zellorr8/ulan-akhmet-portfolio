@@ -136,6 +136,14 @@ export default function Home() {
             ))}
           </ul>
         </div>
+        <div className="shell footer-build">
+          <p>{portfolio.build.description}</p>
+          <nav className="footer-build-links" aria-label="Portfolio development">
+            {portfolio.build.links.map((link) => (
+              <a key={link.label} className="text-link" href={link.href}>{link.label}</a>
+            ))}
+          </nav>
+        </div>
       </footer>
     </>
   );

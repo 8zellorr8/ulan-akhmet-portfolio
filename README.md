@@ -19,4 +19,10 @@ Open `http://localhost:3000`. Run `pnpm lint` and `pnpm build` to check the code
 
 ## How Codex helped
 
-Codex implemented the page from an agreed brief, used UI UX Pro Max to explore layout and typography, and prepared the public CV from the original. The checks cover linting, the production export, mobile and desktop layout, keyboard navigation, project links, and downloading the public PDF. The PDF was also checked for visual changes outside the contact line and for the removal of the phone number from extracted text and links.
+The brief was agreed in a requirements interview, and Ulan reviewed a local preview before the first deployment. Codex implemented the page, used UI UX Pro Max to explore layout and typography, and prepared the public CV from the original.
+
+- [Pull request #2](https://github.com/8zellorr8/ulan-akhmet-portfolio/pull/2) shows the feature branch, project updates, and the checks run before merging to `main`.
+- The initial code review caught a mismatch between the visible “View code” label and its accessible name. The links now start their accessible names with the same words users see.
+- The first production smoke check caught a 404 on the homepage. Vercel was serving `public/` instead of the Next.js static export in `out/`. [The deployment fix](https://github.com/8zellorr8/ulan-akhmet-portfolio/commit/9580598) sets the correct output directory.
+
+Verification covers linting, the production build, mobile and desktop layout, keyboard navigation, project links, social previews, and the public PDF download. The PDF was also checked for visual changes outside the contact line and for the removal of the phone number from extracted text and links.
