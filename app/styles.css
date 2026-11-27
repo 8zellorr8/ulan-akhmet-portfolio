@@ -396,12 +396,45 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 665; line-height: 1.12;
 .course-card p { margin-block-start: 5px; color: var(--muted); }
 .course-card .stack { margin-block-start: 12px; }
 
-.profile-grid { display: grid; gap: 24px; margin-block: clamp(3rem, 7vw, 5.5rem); }
-.profile-section { padding: clamp(1.375rem, 3.2vw, 2rem); border: 1px solid var(--border); border-radius: 15px; }
-.profile-grid h2 { font-size: clamp(1.55rem, 3vw, 2rem); }
-.profile-grid p { max-width: 42rem; margin-block-start: 12px; color: var(--muted); }
-.learning-section { padding: clamp(1.375rem, 3.2vw, 2rem); border: 1px solid #ded3f5; border-radius: 15px; }
-.learning-section h2 { color: var(--accent-hover); }
+.profile-content { display: grid; gap: clamp(2rem, 5vw, 3.5rem); margin-block: clamp(3rem, 7vw, 5.5rem); overflow-wrap: anywhere; }
+.profile-grid { display: grid; gap: 16px; margin-block-start: 16px; }
+.profile-section, .learning-section { padding: clamp(1.375rem, 3.2vw, 2rem); border: 1px solid var(--border); border-radius: 15px; }
+.profile-section h2 { font-size: clamp(1.55rem, 3vw, 2rem); }
+.profile-section > p, .learning-section > p { max-width: 48rem; margin-block-start: 12px; color: var(--muted); }
+.learning-section { border-color: #ded3f5; }
+.learning-section h3 { color: var(--accent-hover); }
+
+.workflow-section {
+  padding: clamp(1.25rem, 4.7vw, 2.75rem);
+  border: 1px solid #3e285a;
+  border-radius: clamp(1rem, 3vw, 1.5rem);
+  background: radial-gradient(ellipse at 100% 0%, #462277, transparent 70%), #191127;
+  color: var(--hero-text);
+}
+
+.workflow-intro { max-width: 60ch; margin-block-start: 12px; color: var(--hero-muted); }
+.workflow-steps { display: grid; gap: 12px; margin: 22px 0 0; padding: 0; list-style: none; }
+.workflow-step { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px; padding: 15px; border: 1px solid #ebd9ff41; border-radius: 11px; background: #231633; }
+.workflow-step h3, .workflow-example h3 { font-size: 1.1rem; font-weight: 650; line-height: 1.25; }
+.workflow-step p, .workflow-example p { margin-block-start: 5px; color: var(--hero-muted); }
+.workflow-number { display: grid; width: 26px; height: 26px; place-items: center; border-radius: 6px; background: #e7d4ff; color: #33174f; font: 650 0.8rem/1 var(--font-mono); }
+.workflow-example { margin-block-start: 20px; padding-block-start: 16px; border-top: 1px solid #ebd9ff41; }
+.workflow-example p { max-width: 74ch; }
+.workflow-links { display: flex; flex-wrap: wrap; gap: 0 24px; margin-block-start: 3px; }
+.workflow-links .text-link { color: var(--hero-accent); }
+.workflow-links .text-link:hover { color: var(--hero-text); }
+.workflow-links a:focus-visible { outline-color: var(--hero-text); }
+
+.profile-grid h3, .project-walkthrough h2 { font-size: clamp(1.3rem, 3vw, 1.65rem); font-weight: 655; letter-spacing: -0.035em; }
+.tool-group { margin-block-start: 15px; }
+.tool-label { color: var(--muted); font-size: 0.875rem; font-weight: 620; }
+.tool-group .stack { margin-block-start: 7px; }
+.tool-group .stack li { background: #eae2f6; color: #412a61; }
+
+.project-walkthrough { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; padding: clamp(1.125rem, 3vw, 1.75rem); border: 1px solid #dcd0ee; border-radius: 15px; background: linear-gradient(110deg, #e7d8fa, #f7f0ff); }
+.project-walkthrough p { max-width: 72ch; margin-block-start: 6px; color: var(--muted); }
+.walkthrough-link { background: var(--accent-hover); color: var(--surface); }
+.walkthrough-link:hover, .walkthrough-link:active { background: #351978; }
 
 .archive-grid .project-card, .course-card, .profile-section, .learning-section {
   background: radial-gradient(ellipse at 100% 0%, var(--panel-tint, #f0e8fa), transparent 79%), var(--panel-base, var(--surface));
@@ -424,7 +457,11 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 665; line-height: 1.12;
   .project-grid, .course-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .archive-grid .project-card:last-child:nth-child(odd), .course-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .archive-grid p { max-width: 66ch; }
-  .profile-grid { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); }
+  .profile-grid, .workflow-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 27rem) {
+  .site-header nav { gap: 0 0.375rem; font-size: 0.875rem; }
 }
 
 @media (min-width: 64rem) {

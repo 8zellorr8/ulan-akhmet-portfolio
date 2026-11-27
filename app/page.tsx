@@ -81,6 +81,7 @@ export default function Home() {
           <nav aria-label="Main navigation">
             <a href="#projects">Projects</a>
             <a href="#about">About</a>
+            <a href="#workflow">Workflow</a>
             <a href="#contact">Contact</a>
           </nav>
         </div>
@@ -139,15 +140,67 @@ export default function Home() {
           </section>
         </section>
 
-        <div className="profile-grid">
+        <div className="profile-content">
           <section className="profile-section" id="about" aria-labelledby="about-title">
             <h2 id="about-title">About</h2>
             <p>{portfolio.education}</p>
             <p>{portfolio.interests}</p>
           </section>
-          <section className="learning-section" id="learning" aria-labelledby="learning-title">
-            <h2 id="learning-title">What I Want to Learn</h2>
-            <p>{portfolio.learning}</p>
+
+          <section className="workflow-section" id="workflow" aria-labelledby="workflow-title">
+            <h2 id="workflow-title">How I Work with Codex</h2>
+            <p className="workflow-intro">{portfolio.workflow.intro}</p>
+            <ol className="workflow-steps" role="list">
+              {portfolio.workflow.steps.map((step, index) => (
+                <li key={step.title} className="workflow-step">
+                  <span className="workflow-number" aria-hidden="true">{index + 1}</span>
+                  <div>
+                    <h3>{step.title}</h3>
+                    <p>{step.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <div className="workflow-example">
+              <h3>A Code Review Example</h3>
+              <p>{portfolio.workflow.example}</p>
+              <nav className="workflow-links" aria-label="Workflow examples">
+                {portfolio.workflow.links.map((link) => (
+                  <a key={link.label} className="text-link" href={link.href}>{link.label}</a>
+                ))}
+              </nav>
+            </div>
+          </section>
+
+          <section className="stack-overview" id="stack" aria-labelledby="stack-title">
+            <h2 id="stack-title">Stack and Learning</h2>
+            <div className="profile-grid">
+              <section className="profile-section" aria-labelledby="tools-title">
+                <h3 id="tools-title">Tools I’ve Used</h3>
+                {portfolio.stack.current.map((group) => (
+                  <div className="tool-group" key={group.label}>
+                    <p className="tool-label">{group.label}</p>
+                    <TechnologyList technologies={group.tools} />
+                  </div>
+                ))}
+              </section>
+              <section className="learning-section" id="learning" aria-labelledby="learning-title">
+                <h3 id="learning-title">What I Want to Learn</h3>
+                <p>{portfolio.learning}</p>
+                <div className="tool-group">
+                  <p className="tool-label">Tools from the internship stack</p>
+                  <TechnologyList technologies={portfolio.stack.next} />
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <section className="project-walkthrough" aria-labelledby="walkthrough-title">
+            <div>
+              <h2 id="walkthrough-title">Walk Through a Project</h2>
+              <p>{portfolio.walkthrough}</p>
+            </div>
+            <a className="button walkthrough-link" href="#contact">Get in touch</a>
           </section>
         </div>
       </main>

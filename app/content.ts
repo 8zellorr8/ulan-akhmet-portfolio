@@ -23,6 +23,9 @@ type Project = ProjectSummary & {
   accessRestricted?: boolean;
 };
 
+const portfolioSource = 'https://github.com/8zellorr8/ulan-akhmet-portfolio';
+const examplePullRequest = `${portfolioSource}/pull/2`;
+
 export const portfolio = {
   name: 'Ulan Akhmet',
   role: 'Software Engineering Student · Backend & AI Projects',
@@ -32,6 +35,28 @@ export const portfolio = {
   education: 'I study Software Engineering at Astana IT University. During my QA internship on a product team, I tested a live web product, reported defects before release, and wrote the user guide.',
   interests: 'I enjoy building backends, integrating LLMs into real products, and evaluating the quality of their responses.',
   learning: 'I want to take AI features from prototype to production and learn how to evaluate LLM outputs on real-world data.',
+  workflow: {
+    intro: 'For this portfolio, I set the requirements, chose the projects to feature, and approved the local preview. Codex helped implement and test the site.',
+    steps: [
+      { title: 'Agree on the brief', description: 'Decide what the page needs to show, what counts as done, and what to check on mobile.' },
+      { title: 'Build the change', description: 'Use Codex to implement the agreed scope in Next.js. Keep project facts and links in one typed content file.' },
+      { title: 'Test the result', description: 'Run lint and a production build. Check the site in Chromium at phone and desktop widths, including keyboard navigation and the CV download.' },
+      { title: 'Review and ship', description: 'Use a feature branch and pull request for larger changes. Review the diff, deploy to Vercel, and check the public page again.' },
+    ],
+    example: 'The first review caught a mismatch between visible GitHub link labels and accessible names. Each accessible name now starts with “View code,” the words shown on screen.',
+    links: [
+      { label: 'Read review notes', href: `${portfolioSource}#how-codex-helped` },
+      { label: 'View example pull request', href: examplePullRequest },
+    ],
+  },
+  stack: {
+    current: [
+      { label: 'Backend and testing', tools: ['Python', 'FastAPI', 'PostgreSQL', 'Docker', 'pytest'] },
+      { label: 'Web and delivery', tools: ['TypeScript', 'React', 'Next.js', 'Git', 'GitHub Actions', 'Vercel', 'Codex'] },
+    ],
+    next: ['Claude Code', 'Firebase', 'Stripe', 'Trigger.dev'],
+  },
+  walkthrough: 'I can walk through how Replimetr validates model output or show how a portfolio change moved from a pull request to a live release.',
   contacts: [
     { label: 'GitHub', href: 'https://github.com/8zellorr8' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/ulan-akhmet-ab60a5395' },
@@ -40,8 +65,8 @@ export const portfolio = {
   build: {
     description: 'Built with Codex · Deployed on Vercel',
     links: [
-      { label: 'Site source', href: 'https://github.com/8zellorr8/ulan-akhmet-portfolio' },
-      { label: 'Example pull request', href: 'https://github.com/8zellorr8/ulan-akhmet-portfolio/pull/2' },
+      { label: 'Site source', href: portfolioSource },
+      { label: 'Example pull request', href: examplePullRequest },
     ],
   },
   highlight: { project: 'Replimetr', scored: 65, total: 65, label: 'Customer conversations scored using a local LLM' },
