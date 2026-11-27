@@ -1,6 +1,6 @@
 # Ulan Akhmet Portfolio
 
-An English-language portfolio built with Next.js App Router and TypeScript. The homepage and assets export to static files. Edit the profile and project copy in `app/content.ts`.
+An English-language portfolio built with Next.js App Router and TypeScript. The homepage groups the featured work, additional hackathons, and coursework with jump links to each section. The homepage and assets export to static files. Edit the profile and project copy in `app/content.ts`.
 
 ## Run locally
 
