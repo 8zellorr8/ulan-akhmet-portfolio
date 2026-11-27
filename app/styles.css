@@ -267,6 +267,10 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 665; line-height: 1.12;
   --cover-start: #251140;
   --cover-end: #53208b;
   --cover-glow: #9a55e8;
+  --cover-ink: var(--hero-text);
+  --cover-caption: #f1e5fd;
+  --cover-grid: #fff2;
+  --cover-highlight: #e3bdff;
   position: relative;
   isolation: isolate;
   display: grid;
@@ -278,7 +282,7 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 665; line-height: 1.12;
   padding: clamp(0.875rem, 2.6vw, 1.25rem);
   border-radius: 10px;
   background: linear-gradient(120deg, var(--cover-start) 20%, var(--cover-end));
-  color: var(--hero-text);
+  color: var(--cover-ink);
 }
 
 .case-cover::before, .case-cover::after { position: absolute; pointer-events: none; content: ''; }
@@ -288,8 +292,8 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 665; line-height: 1.12;
   inset: 0;
   background-image:
     linear-gradient(0deg, var(--cover-start), color-mix(in srgb, var(--cover-start) 65%, transparent) 49%, transparent 92%),
-    linear-gradient(#fff2 1px, transparent 1px),
-    linear-gradient(90deg, #fff2 1px, transparent 1px);
+    linear-gradient(var(--cover-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cover-grid) 1px, transparent 1px);
   background-size: 100% 100%, 17px 17px, 17px 17px;
 }
 
@@ -297,7 +301,7 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 665; line-height: 1.12;
   z-index: -2;
   inset: -72% -28% -43% 41%;
   border-radius: 50%;
-  background: radial-gradient(ellipse, transparent 33%, var(--cover-glow) 52%, #e3bdff 58%, var(--cover-glow) 61%, transparent 68%);
+  background: radial-gradient(ellipse, transparent 33%, var(--cover-glow) 52%, var(--cover-highlight) 58%, var(--cover-glow) 61%, transparent 68%);
   filter: blur(4px);
   opacity: 0.62;
   transform: rotate(-32deg);
@@ -310,8 +314,22 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 665; line-height: 1.12;
 .case-cover[data-theme='matchup']::after { inset: -98% -25% -48% 45%; transform: rotate(-52deg); }
 .case-cover[data-theme='classroom']::after { inset: -55% -30% -82% 53%; transform: rotate(18deg); }
 
+.case-cover[data-tone='light'] {
+  --cover-ink: #342050;
+  --cover-caption: #503c70;
+  --cover-grid: #62469118;
+  --cover-highlight: #fff9ff;
+  min-height: 110px;
+  border: 1px solid #e3d7f2;
+}
+
+.case-cover[data-theme='planning'] { --cover-start: #f4ecfb; --cover-end: #dfcdf7; --cover-glow: #ab8ade; }
+.case-cover[data-theme='risk'] { --cover-start: #f5effc; --cover-end: #e2ddfa; --cover-glow: #a798e6; }
+.case-cover[data-theme='telemetry'] { --cover-start: #f0eafa; --cover-end: #dbd6fa; --cover-glow: #a399e1; }
+.case-cover[data-theme='telemetry']::after { inset: -124% -20% -94% 46%; transform: rotate(-22deg); }
+
 .cover-value { max-width: 14ch; font: 650 clamp(1.9rem, 4vw, 2.8rem)/1 var(--font-mono); letter-spacing: -0.08em; overflow-wrap: anywhere; }
-.cover-label { max-width: 27ch; margin-block-start: 7px; color: #f1e5fd; font-size: 0.875rem; line-height: 1.4; overflow-wrap: anywhere; }
+.cover-label { max-width: 27ch; margin-block-start: 7px; color: var(--cover-caption); font-size: 0.875rem; line-height: 1.4; overflow-wrap: anywhere; }
 .case-cover[data-theme='classroom'] .cover-value { max-width: 12ch; font: 660 clamp(1.55rem, 3.6vw, 2.3rem)/0.98 var(--font-body); letter-spacing: -0.05em; }
 
 .project-work { flex: 1; }
@@ -351,7 +369,6 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 665; line-height: 1.12;
   padding: 18px 22px;
   border: 1px solid var(--border);
   border-radius: 12px;
-  background: var(--surface);
 }
 
 .course-card h4 { font-size: 1.2rem; font-weight: 655; letter-spacing: -0.025em; }
@@ -359,11 +376,18 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 665; line-height: 1.12;
 .course-card .stack { margin-block-start: 12px; }
 
 .profile-grid { display: grid; gap: 24px; margin-block: clamp(3rem, 7vw, 5.5rem); }
-.profile-section { padding: clamp(1.375rem, 3.2vw, 2rem); border: 1px solid var(--border); border-radius: 15px; background: var(--surface); }
+.profile-section { padding: clamp(1.375rem, 3.2vw, 2rem); border: 1px solid var(--border); border-radius: 15px; }
 .profile-grid h2 { font-size: clamp(1.55rem, 3vw, 2rem); }
 .profile-grid p { max-width: 42rem; margin-block-start: 12px; color: var(--muted); }
-.learning-section { padding: clamp(1.375rem, 3.2vw, 2rem); border: 1px solid #ded3f5; border-radius: 15px; background: var(--accent-pale); }
+.learning-section { padding: clamp(1.375rem, 3.2vw, 2rem); border: 1px solid #ded3f5; border-radius: 15px; }
 .learning-section h2 { color: var(--accent-hover); }
+
+.archive-grid .project-card, .course-card, .profile-section, .learning-section {
+  background: radial-gradient(ellipse at 100% 0%, var(--panel-tint, #f0e8fa), transparent 79%), var(--panel-base, var(--surface));
+}
+
+.course-card:nth-child(even) { --panel-tint: #ecebfb; }
+.learning-section { --panel-tint: #eadcfa; --panel-base: #f9f5fd; }
 
 .site-footer { border-top: 1px solid var(--border); }
 .footer-inner, .footer-build { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 5px 24px; }
@@ -377,7 +401,7 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 665; line-height: 1.12;
   .shell { width: min(100% - 72px, 69rem); }
   .hero { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); }
   .project-grid, .course-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .archive-grid .project-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .archive-grid .project-card:last-child:nth-child(odd), .course-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .archive-grid p { max-width: 66ch; }
   .profile-grid { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); }
 }

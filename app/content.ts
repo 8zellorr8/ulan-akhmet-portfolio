@@ -8,7 +8,12 @@ type ProjectSummary = {
 type Project = ProjectSummary & {
   localName?: { text: string; lang: string };
   context?: string;
-  cover?: { theme: 'coverage' | 'video' | 'matchup' | 'classroom'; value: string; label: string };
+  cover?: {
+    theme: 'coverage' | 'video' | 'matchup' | 'classroom' | 'planning' | 'risk' | 'telemetry';
+    tone?: 'light';
+    value: string;
+    label: string;
+  };
   contribution: string;
   contributionLabel?: 'Team approach';
   outcome?: string;
@@ -90,7 +95,8 @@ export const portfolio = {
       id: 'ketnavr',
       name: 'Ketnavr',
       context: 'Decentrathon 4 · Solo backend',
-      description: 'A supplier reorder engine that prioritizes purchases using stock coverage, lead times, and a six-month demand forecast.',
+      cover: { theme: 'planning', tone: 'light', value: '6 months', label: 'Demand forecast horizon' },
+      description: 'A supplier reorder engine that prioritizes purchases using stock coverage, lead times, and projected demand.',
       contribution: 'I built the backend and added a fallback from OpenAI to NVIDIA NIM so the chat could keep responding when one provider failed.',
       outcome: 'The engine sorted stock from two suppliers into critical, soon, and normal reorder priorities.',
       stack: ['FastAPI', 'pandas', 'NumPy', 'OpenAI API', 'NVIDIA NIM'],
@@ -100,18 +106,19 @@ export const portfolio = {
       id: 'procureai-kz',
       name: 'ProcureAI KZ',
       context: 'Decentrathon 5.0 · Finalist',
+      cover: { theme: 'risk', tone: 'light', value: '250', label: 'Synthetic tenders used for evaluation' },
       description: 'A prototype that flags potentially risky public tenders for review.',
       contribution: 'Our team used six rules and Isolation Forest to flag anomalies, then generated plain-language explanations with GPT-4o.',
       contributionLabel: 'Team approach',
-      outcome: 'We evaluated the prototype on 250 synthetic tenders.',
       stack: ['Python', 'FastAPI', 'scikit-learn', 'GPT-4o'],
     },
     {
       id: 'kentavr',
       name: 'Kentavr',
       context: 'hackNU · Team project',
+      cover: { theme: 'telemetry', tone: 'light', value: '6', label: 'Live telemetry metrics' },
       description: 'A digital twin prototype for a locomotive.',
-      contribution: 'Our team streamed six live telemetry metrics over WebSockets.',
+      contribution: 'Our team streamed locomotive telemetry over WebSockets.',
       contributionLabel: 'Team approach',
       outcome: 'An offline simulator and CSV export let us demonstrate the prototype without hardware.',
       stack: ['Node.js', 'Express', 'PostgreSQL', 'Socket.IO', 'React'],

@@ -22,7 +22,7 @@ function ProjectCard({ project }: { project: Project }) {
       </div>
       {project.context && <p className="project-context">{project.context}</p>}
       {cover && (
-        <div className="case-cover" data-theme={cover.theme}>
+        <div className="case-cover" data-theme={cover.theme} data-tone={cover.tone}>
           <p className="cover-value">{cover.value}</p>
           <p className="cover-label">{cover.label}</p>
         </div>
